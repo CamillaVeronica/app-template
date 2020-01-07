@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# _*_ coding:utf-8 _*_
 """
 Commands work with servers. (Hiss, boo.)
 """
@@ -270,4 +270,4 @@ def fabcast(command):
     if not app_config.DEPLOY_TO_SERVERS:
         logging.error('You must set DEPLOY_TO_SERVERS = True in your app_config.py and setup a server before fabcasting.')
 
-    run('cd %s && bash run_on_server.sh fab %s $DEPLOYMENT_TARGET %s' % (app_config.SERVER_REPOSITORY_PATH, env.branch, command))
+    run('cd %s && bash run_on_server.sh fab $DEPLOYMENT_TARGET branch:%s %s' % (app_config.SERVER_REPOSITORY_PATH, env.branch, command))
